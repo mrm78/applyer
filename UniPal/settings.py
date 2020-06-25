@@ -19,15 +19,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'sm7myjcyuzay2y*6&3@h(l=@$4(2ln%b@=54g)v@r54s@fx(gs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.100']
+ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'accounts.user'
+AUTH_USER_MODEL = ''
 LOGIN_URL = 'login'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
@@ -82,9 +80,9 @@ WSGI_APPLICATION = 'UniPal.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'unipal_db',
-        'USER': 'unipal_user',
-        'PASSWORD': '4420888024a',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
