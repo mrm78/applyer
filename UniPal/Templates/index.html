@@ -1,0 +1,355 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+
+{% endblock %}
+
+
+{% block page %}
+<!--Start Slider-->
+<div class="swiper-container main-swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide main-swiper-slide">
+        </div>
+        <div class="swiper-slide main-swiper-slide">
+        </div>
+        <div class="swiper-slide main-swiper-slide">
+        </div>
+    </div>
+    <div class="main-swiper-pagination swiper-pagination"></div>
+    <div class="main-swiper-button-prev swiper-button-prev"></div>
+    <div class="main-swiper-button-next swiper-button-next"></div>
+</div>
+<!--End Slider-->
+<section class="currency">
+    <h4 class="currency-heading">
+        آخرین بروزرسانی:
+        <span>1399/03/19-14:22</span>
+    </h4>
+    <div class="currency-items-wrapper">
+        <div class="row">
+            <input type="number" name="" id="currency-amount" oninput=calcute()>
+            <div class="col-3 col-sm-2 col-md-1 col-lg-1 col-xl-1 currency-items" onclick=select("dollor_rate")>
+                دلار آمریکا
+            </div>
+            <div id="dollor_rate" hidden>{{dollor_rate}}</div>
+            <div class="col-3 col-sm-2 col-md-1 col-lg-1 col-xl-1 currency-items" onclick=select("euro_rate")>
+                یورو
+            </div>
+            <div id="euro_rate" hidden>{{euro_rate}}</div>
+            <div class="col-3 col-sm-2 col-md-1 col-lg-1 col-xl-1 currency-items" onclick=select("pond_rate")>
+                پوند انگلیس
+            </div>
+            <div id="pond_rate" hidden>{{pond_rate}}</div>
+            <div class="col-3 col-sm-2 col-md-1 col-lg-1 col-xl-1 currency-items">
+                دلار کانادا
+            </div>
+            <div class="col-3 col-sm-2 col-md-1 col-lg-1 col-xl-1 currency-items">
+                دلار استرالیا
+            </div>
+        </div>
+        <div id="selected-currency" hidden>{{dollor_rate}}</div>
+        <input type="text" name="" id="cost" class="currency-input" data-toggle="tooltip" title="با محاسبه ی 7 درصد کارمزد" data-placement="bottom" readonly>
+        <div class="clear-fix"></div>
+    </div>
+
+</section>
+<!-- Start Sms Panel -->
+<section class="sms-panel">
+    <div class="container-fluid">
+        <div class="sms-panel-text">
+            <h4 class="sms-panel-heading-four">انجام سفارشات پرداخت بین المللی</h4>
+            <h2 class="sms-panel-heading-two">با رضایت بخش ترین شرایط در اپلایر</h2>
+        </div>
+        <div class="sms-panel-boxes-wrapper">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                    <div class="sms-panel-boxes">
+                        <img src="img/Fast loading (1).gif" alt="" class="sms-panel-boxes-image">
+                        <h4 class="sms-panel-boxes-heading">سرعت در انجام</h4>
+                        <p class="sms-panel-boxes-paragraph">با ثبت سفارش در سریعترین زمان ممکن اپراتور های اپلایر سفارش های شما را پرداخت خواهند کرد.</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                    <div class="sms-panel-boxes">
+                        <img src="img/Creativity.gif" alt="" class="sms-panel-boxes-image">
+                        <h4 class="sms-panel-boxes-heading">سفارش آسان</h4>
+                        <p class="sms-panel-boxes-paragraph">خیلی راحت و آسان سفارش های پرداخت خودتان را با ثبت اطلاعات پرداخت انجام می دهیم.</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                    <div class="sms-panel-boxes">
+                        <img src="img/Bankruptcy.gif" alt="" class="sms-panel-boxes-image">
+                        <h4 class="sms-panel-boxes-heading">قیمت به صرفه</h4>
+                        <p class="sms-panel-boxes-paragraph">کاهش در هزینه های پرداخت با تخفیف های دوره ای و ثابت اپلایر و امتیازات باشگاه مشتریان.</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3">
+                    <div class="sms-panel-boxes">
+                        <img src="img/Active Support.gif" alt="" class="sms-panel-boxes-image">
+                        <h4 class="sms-panel-boxes-heading">پشتیبانی سریع</h4>
+                        <p class="sms-panel-boxes-paragraph">کارشناسان اپلایر در 24 ساعت شبانه روز آماده پشتیبانی از سفارشات و پرداخت های شما می باشند.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Sms Panel -->
+
+<!-- Start Options -->
+<section class="options">
+    <div class="options-text">
+        <h3 class="options-heading-three">پکیج های به صرفه</h3>
+        <h2 class="options-heading-two">با انتخاب و خریداری پکیج ها کمتر هزینه کنید و تخفیف بیشتر بگیرید</h2>
+    </div>
+    <div class="options-boxes-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="options-boxes col-md-6 col-lg-3 col-xl-3">
+                    <img src="img/options.png" alt="" class="options-boxes-image">
+                    <h3 class="options-boxes-heading">یکماهه</h3>
+                    <p class="options-boxes-paragraph">
+                        100 <span class="options-boxes-span">هزار تومان</span>
+                    </p>
+                    <ul class="options-boxes-list">
+                        <li class="options-boxes-list-item">
+                            <i class="options-boxes-list-item-icon"></i>
+                            <span class="options-boxes-list-text">20 درصد تخفیف کارمزد تا سقف 1 میلیون</span>
+                            <li class="options-boxes-list-item">
+                                <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">10 درصد تخفیف آژانس مسافرتی تا سقف 2 میلیون
+                              </span>
+                            </li>
+                    </ul>
+                    <button class="options-boxes-button">ثبت نام</button>
+                    <a href="#" class="options-boxes-link">اطلاعات بیشتر</a>
+                </div>
+                <div class="options-boxes col-md-6 col-lg-3 col-xl-3">
+                    <img src="img/options.png" alt="" class="options-boxes-image">
+                    <h3 class="options-boxes-heading">سه ماهه</h3>
+                    <p class="options-boxes-paragraph">
+                        250 <span class="options-boxes-span">هزار تومان</span>
+                    </p>
+                    <ul class="options-boxes-list">
+                        <li class="options-boxes-list-item">
+                            <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">25 درصد تخفیف کارمزد تا سقف 1 میلیون</span>
+                            <li class="options-boxes-list-item">
+                                <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">10 درصد تخفیف آژانس مسافرتی تا سقف 2 میلیون
+                              </span>
+                            </li>
+                    </ul>
+                    <button class="options-boxes-button">ثبت نام</button>
+                    <a href="#" class="options-boxes-link">اطلاعات بیشتر</a>
+                </div>
+                <div class="options-boxes col-md-6 col-lg-3 col-xl-3">
+                    <img src="img/options.png" alt="" class="options-boxes-image">
+                    <h3 class="options-boxes-heading">شش ماهه</h3>
+                    <p class="options-boxes-paragraph">
+                        500 <span class="options-boxes-span">هزار تومان</span>
+                    </p>
+                    <ul class="options-boxes-list">
+                        <li class="options-boxes-list-item">
+                            <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">40 درصد تخفیف کارمزد تا سقف 2 میلیون</span>
+                            <li class="options-boxes-list-item">
+                                <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">15 درصد تخفیف آژانس مسافرتی تا سقف 2 میلیون
+                              </span>
+                            </li>
+                    </ul>
+                    <button class="options-boxes-button">ثبت نام</button>
+                    <a href="#" class="options-boxes-link">اطلاعات بیشتر</a>
+                </div>
+                <div class="options-boxes col-md-6 col-lg-3 col-xl-3">
+                    <img src="img/options.png" alt="" class="options-boxes-image">
+                    <h3 class="options-boxes-heading">یک ساله</h3>
+                    <p class="options-boxes-paragraph">
+                        1 <span class="options-boxes-span">میلیون تومان</span>
+                    </p>
+                    <ul class="options-boxes-list">
+                        <li class="options-boxes-list-item">
+                            <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">50 درصد تخفیف کارمزد تا سقف 5 میلیون</span>
+                            <li class="options-boxes-list-item">
+                                <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">20 درصد تخفیف آژانس مسافرتی تا سقف 5 میلیون
+                              </span>
+                            </li>
+                    </ul>
+                    <button class="options-boxes-button">ثبت نام</button>
+                    <a href="#" class="options-boxes-link">اطلاعات بیشتر</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="options-boxes-slide-wrapper">
+        <div class="swiper-container-options">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="options-boxes-slide">
+                        <img src="img/options.png" alt="" class="options-boxes-image">
+                        <h3 class="options-boxes-heading">پایه</h3>
+                        <p class="options-boxes-paragraph">
+                            34 <span class="options-boxes-span">هزار تومان</span>
+                        </p>
+                        <ul class="options-boxes-list">
+                            <li class="options-boxes-list-item">
+                                <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">1
+                                    خط اختصاصی</span>
+                                <li class="options-boxes-list-item">
+                                    <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">300 پیامک هدیه</span>
+                                </li>
+                                <li class="options-boxes-list-item">
+                                    <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">20% امکانات پنل</span>
+                                </li>
+                                <li class="options-boxes-list-item">
+                                    <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">پیامکی 17 تومان</span>
+                                </li>
+                        </ul>
+                        <button class="options-boxes-button">ثبت نام</button>
+                        <a href="#" class="options-boxes-link">اطلاعات بیشتر</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="options-boxes-slide">
+                        <img src="img/options.png" alt="" class="options-boxes-image">
+                        <h3 class="options-boxes-heading">پایه</h3>
+                        <p class="options-boxes-paragraph">
+                            34 <span class="options-boxes-span">هزار تومان</span>
+                        </p>
+                        <ul class="options-boxes-list">
+                            <li class="options-boxes-list-item">
+                                <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">1
+                                    خط اختصاصی</span>
+                                <li class="options-boxes-list-item">
+                                    <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">300 پیامک هدیه</span>
+                                </li>
+                                <li class="options-boxes-list-item">
+                                    <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">20% امکانات پنل</span>
+                                </li>
+                                <li class="options-boxes-list-item">
+                                    <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">پیامکی 17 تومان</span>
+                                </li>
+                        </ul>
+                        <button class="options-boxes-button">ثبت نام</button>
+                        <a href="#" class="options-boxes-link">اطلاعات بیشتر</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="options-boxes-slide">
+                        <img src="img/options.png" alt="" class="options-boxes-image">
+                        <h3 class="options-boxes-heading">پایه</h3>
+                        <p class="options-boxes-paragraph">
+                            34 <span class="options-boxes-span">هزار تومان</span>
+                        </p>
+                        <ul class="options-boxes-list">
+                            <li class="options-boxes-list-item">
+                                <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">1
+                                    خط اختصاصی</span>
+                                <li class="options-boxes-list-item">
+                                    <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">300 پیامک هدیه</span>
+                                </li>
+                                <li class="options-boxes-list-item">
+                                    <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">20% امکانات پنل</span>
+                                </li>
+                                <li class="options-boxes-list-item">
+                                    <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">پیامکی 17 تومان</span>
+                                </li>
+                        </ul>
+                        <button class="options-boxes-button">ثبت نام</button>
+                        <a href="#" class="options-boxes-link">اطلاعات بیشتر</a>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="options-boxes-slide">
+                        <img src="img/options.png" alt="" class="options-boxes-image">
+                        <h3 class="options-boxes-heading">پایه</h3>
+                        <p class="options-boxes-paragraph">
+                            34 <span class="options-boxes-span">هزار تومان</span>
+                        </p>
+                        <ul class="options-boxes-list">
+                            <li class="options-boxes-list-item">
+                                <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">1
+                                    خط اختصاصی</span>
+                                <li class="options-boxes-list-item">
+                                    <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">300 پیامک هدیه</span>
+                                </li>
+                                <li class="options-boxes-list-item">
+                                    <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">20% امکانات پنل</span>
+                                </li>
+                                <li class="options-boxes-list-item">
+                                    <i class="options-boxes-list-item-icon"></i> <span class="options-boxes-list-text">پیامکی 17 تومان</span>
+                                </li>
+                        </ul>
+                        <button class="options-boxes-button">ثبت نام</button>
+                        <a href="#" class="options-boxes-link">اطلاعات بیشتر</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination-options"></div>
+    </div>
+    <!-- Add Pagination -->
+
+</section>
+<!-- End Options -->
+
+<!-- Start Statistics -->
+<section class="statistics">
+    <div class="container-fluid">
+        <div class="statistics-text">
+            <h3 class="statistics-heading-three">
+                استانداردهای ما</h3>
+            <h4 class="statistics-heading-four">
+                شما سزاوار یک تجربۀ عالی از پنل پیامکی هستید</h4>
+        </div>
+        <div class="statistics-boxes-wrapper">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <div class="first-statistics-boxes">
+                        <div class="statistics-boxes">
+                            <div class="statistics-boxes-text">
+                                <h3 class="statistics-boxes-heading">
+                                    <span class="text-green statistics-boxes-span">24/7</span><br> از شما پشتیبانی میکنیم
+                                </h3>
+                                <p class="statistics-boxes-paragraph">
+                                    7 روز هفته و 24 ساعت شبانه‌روز در کنارتان هستیم. به هر سوال و مشکلی مربوط به پنل اس ام اس شما پاسخ می‌دهیم.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                    <div class="second-statistics-boxes">
+                        <div class="statistics-boxes">
+                            <div class="statistics-boxes-text">
+                                <h3 class="statistics-boxes-heading">
+                                    <span class="text-orange statistics-boxes-span">98٪</span><br> مشترکین از ما راضی هستند
+                                </h3>
+                                <p class="statistics-boxes-paragraph">
+                                    ما مشتری‌های خوشحال بسیاری داریم. امیدواریم استفاده از پنل اس ام اس ملی‌پیامک، لبخند رضایت شما را نیز به همراه داشته باشد.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<!-- End Statistics -->
+
+
+<script>
+    formater = Intl.NumberFormat({style: 'currency',})
+    function calcute(){
+        cost = Math.round(parseInt(document.getElementById("selected-currency").textContent) * parseInt(document.getElementById("currency-amount").value) * 1.07)
+        document.getElementById("cost").value = formater.format(cost);
+        document.getElementById("cost").value += "   تومان "
+    }
+    function select(currency){
+        document.getElementById("selected-currency").textContent = document.getElementById(currency).textContent;
+        calcute();
+        Intl.NumberFormat('en-US', {style: 'currency',})
+    }
+</script>
+{% endblock %}

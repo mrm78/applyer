@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <title>ثبت نام</title>
+    <link rel="stylesheet" href="{% static 'css/register-style.css' %}">
+{% endblock %}
+
+{% block page %}
+    <div class="page-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-6 first-child">
+                    <div class="inputs-section">
+                        <!--START ALERT-->
+                        <div class="alert alert-danger alert-dismissible {{email_error}} custom-alert">
+                            پست الکترونیکی شما تکراری است!
+                        </div>
+                        <div class="alert alert-danger alert-dismissible {{password_error}} custom-alert">
+                            رمز عبور با تکرار آن یکسان نیست!
+                        </div>
+                        <!--END ALERT-->
+                        <h2 class="text-center page-title">ثبت نام در یونی پال</h2>
+                        <form action="{% url 'register' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="tel" class="inputs" placeholder="شماره همراه" name="phone">
+                                    <i class="fa fa-mobile input-icon" style="font-size: 35px;"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-wrapper">
+                                    <input type="email" class="inputs " placeholder="پست الکترونیکی" name="email">
+                                    <i class="fa fa-envelope input-icon" style="font-size: 20px;"></i>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <div class="input-wrapper">
+                                            <input type="password" class="inputs " placeholder="رمز عبور" name="password">
+                                            <i class="fa fa-lock input-icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 col-lg-6">
+                                    <div class="form-group">
+                                        <div class="input-wrapper">
+                                            <input type="password" class="inputs" placeholder="تکرار رمز عبور" name="rpt_password">
+                                            <i class="fa fa-lock input-icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="questions" style="text-align: right;">
+                                        <a href="{% url 'login' %}">قبلاً ثبت نام کرده اید؟</a>
+                                    </div>
+                                </div>
+                                <input type="submit" value="ثبت نام" class="button">
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-6 second-child">
+                    <div class="description-section">
+                        <h2 class="description-section-heading-two">به یونی پال خوش آمدید!</h2>
+                        <h4 class="description-section-heading-four">برای ثبت نام،وارد کردن چند فیلد کافی است.اگر تاکنون در یونی پال عضو نشده اید،همین حالا و با چند قدم ساده عضو شوید.</h4>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/orders-style.css' %}">
+{% endblock %}
+
+{% block page %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-5 col-xl-4">
+                <aside class="side-bar">
+                    <div class="side-bar-content">
+                        <img src="{% static 'img/object.pn' %}g" alt="">
+                        <h4>سفارشات</h4>
+                    </div>
+                    <div class="side-bar-list-wrapper">
+                        <ul class="side-bar-list">
+                            <li class="side-bar-list-items-child">
+                                <a href="#" class="side-bar-list-items-links">آزمون های زبان</a>
+                                <ul class="side-bar-sub-list">
+                                    <li class="side-bar-sub-list-items">
+                                        <a href="{% url 'toefl' %}" class="side-bar-sub-list-items-links">تافل</a>
+                                    </li>
+                                    <li class="side-bar-sub-list-items">
+                                        <a href="#" class="side-bar-sub-list-items-links">آیلتس</a>
+                                    </li>
+                                    <li class="side-bar-sub-list-items">
+                                        <a href="#" class="side-bar-sub-list-items-links">GRE</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="side-bar-list-items">
+                                <a href="#" class="side-bar-list-items-links">اپلیکیشن فی</a>
+                            </li>
+                            <li class="side-bar-list-items">
+                                <a href="#" class="side-bar-list-items-links">ویزا و سفارت</a>
+                            </li>
+                            <li class="side-bar-list-items">
+                                <a href="#" class="side-bar-list-items-links">آزمون های بین المللی</a>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-7 col-xl-8">
+                <div class="orders-boxes-wrapper">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                            <div class="orders-boxes">
+                                <div class="orders-boxes-image-wrapper">
+                                    <img class="orders-boxes-image" src="{% static 'img/ielts.png' %}" />
+                                </div>
+                                <button class="orders-boxes-button">
+                                <i class="fa fa-list-alt orders-boxes-icons"></i>
+                                    <span>ارسال سفارش</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                            <div class="orders-boxes">
+                                <img class="orders-boxes-image" src="{% static 'img/ielts.png' %}" />
+                                <button class="orders-boxes-button">
+                                <i class="fa fa-list-alt orders-boxes-icons"></i>
+                                    <span>ارسال سفارش</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                            <div class="orders-boxes">
+                                <img class="orders-boxes-image" src="{% static 'img/ielts.png' %}" />
+                                <button class="orders-boxes-button">
+                                <i class="fa fa-list-alt orders-boxes-icons"></i>
+                                    <span>ارسال سفارش</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                            <div class="orders-boxes">
+                                <img class="orders-boxes-image" src="{% static 'img/ielts.png' %}" />
+                                <button class="orders-boxes-button">
+                                <i class="fa fa-list-alt orders-boxes-icons"></i>
+                                    <span>ارسال سفارش</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                            <div class="orders-boxes">
+                                <img class="orders-boxes-image" src="{% static 'img/ielts.png' %}" />
+                                <button class="orders-boxes-button">
+                                <i class="fa fa-list-alt orders-boxes-icons"></i>
+                                    <span>ارسال سفارش</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
+                            <div class="orders-boxes">
+                                <img class="orders-boxes-image" src="{% static 'img/ielts.png' %}" />
+                                <button class="orders-boxes-button">
+                                <i class="fa fa-list-alt orders-boxes-icons"></i>
+                                    <span>ارسال سفارش</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+
+{% endblock %}

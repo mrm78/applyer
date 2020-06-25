@@ -1,0 +1,193 @@
+    @import "font.css";
+    body {
+        font-family: 'yekan', 'numbers';
+        font-weight: 500;
+    }
+    
+    .side-bar {
+        background-color: #01D08C;
+        padding: 15px;
+        margin-top: 20px;
+        color: white;
+        border-radius: 5px;
+        height: 100%;
+        padding: 10% 0;
+    }
+    
+    .side-bar-content {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .side-bar-list {
+        font-size: 20px;
+    }
+    
+    .side-bar-list,
+    .side-bar-sub-list {
+        list-style: none;
+    }
+    
+    .side-bar-list-items-child,
+    .side-bar-list-items {
+        position: relative;
+        text-align: right;
+        margin-top: 20px;
+        padding: 0 30px;
+    }
+    
+    .side-bar-list-items-links {
+        color: white;
+        text-decoration: none;
+        padding: 0 30px;
+        transition: all ease .4s;
+    }
+    
+    .side-bar-sub-list-items-links {
+        color: white;
+        text-decoration: none;
+        transition: all ease .4s;
+    }
+    
+    .side-bar-list-items-links:hover {
+        padding: 0 40px;
+        text-decoration: none;
+        color: white;
+    }
+    
+    .side-bar-sub-list-items-links:hover {
+        padding: 0 10px;
+        text-decoration: none;
+        color: white;
+    }
+    
+    .side-bar-list-items-child::before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        right: 0px;
+        border-color: white;
+        border-width: 0 2.5px 2.5px 0;
+        border-style: solid;
+        padding: 5px;
+        transition: all ease .3s;
+        transform: rotate(45deg);
+        cursor: pointer;
+    }
+    
+    .side-bar-sub-list-items {
+        position: relative;
+        margin-top: 10px;
+    }
+    
+    .side-bar-sub-list-items::before {
+        position: absolute;
+        right: -20px;
+        content: "•";
+    }
+    
+    .side-bar-list-items::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        right: 0px;
+        border-color: white;
+        border-width: 0 2.5px 2.5px 0;
+        border-style: solid;
+        padding: 5px;
+        transition: all ease .3s;
+        transform: rotate(135deg);
+        cursor: pointer;
+    }
+    
+    .orders-boxes-wrapper {
+        padding: 3rem 1rem .5rem;
+    }
+    
+    .orders-boxes {
+        margin-bottom: 20px;
+        border-radius: 2px;
+        box-shadow: 1px 1px 2px 1px #01D08C, -1px 1px 2px 1px #01D08C, 1px -1px 2px 1px #01D08C, -1px -1px 2px 1px #01D08C;
+        transition: all ease .3s;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    .orders-boxes:hover {
+        transform: scaleX(1.05) scaleY(1.01);
+    }
+    
+    .orders-boxes-image-wrapper {
+        padding: 10px;
+    }
+    
+    .orders-boxes-image {
+        width: 100%;
+        height: auto;
+        margin: auto;
+        position: relative;
+    }
+    
+    .orders-boxes-button {
+        margin: 15px auto 5px;
+        background-color: #01D08C;
+        border: 1px solid white;
+        outline: none;
+        display: block;
+        padding: 20px 50px;
+        border-radius: 50px;
+        position: relative;
+        height: 50px;
+        border: 1px solid white;
+        z-index: 5;
+        color: white;
+        padding: 10px;
+        min-width: 180px;
+        font-family: 'yekan', 'numbers';
+        position: relative;
+    }
+    
+    .orders-boxes-button i {
+        font-size: 20px;
+        display: inline-block;
+        transition: all ease 1s;
+        position: relative;
+        top: 2px;
+    }
+    
+    .orders-boxes-button span {
+        font-size: 15px;
+        display: inline-block;
+        margin-right: 10px;
+        position: relative;
+        bottom: 2px;
+    }
+    
+    .orders-boxes-button:after {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        transition: all ease .5s;
+        content: "";
+        background: #fff;
+        z-index: -1;
+        border-radius: 50px;
+    }
+    
+    .orders-boxes-button:hover,
+    .orders-boxes-button:active {
+        border: 1px solid #01D08C;
+        outline: none;
+        color: #01D08C;
+    }
+    
+    .orders-boxes-button:focus {
+        outline: none;
+    }
+    
+    .orders-boxes-button:hover::after,
+    .orders-boxes-button:active::after {
+        width: 100%;
+    }

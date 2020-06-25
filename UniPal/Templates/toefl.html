@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+    <title>یونی پال</title>
+    <link rel="stylesheet" href="{% static 'css/informations-style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block page %}
+    <div class="container">
+        <form action="{% url 'toefl' %}" method="POST">
+            {% csrf_token %}
+            <div class="input-wrapper">
+                <h3 class="input-title">مشخصات متقاضی</h3>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="input-text input-label">
+                            <p>سفارش را برای چه کسی ثبت می کنید؟</p>
+                        </div>
+                        <div class="form-group form-inputs">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" id="rdb-me" required name="person">
+                                <label for="rdb-me" class="custom-control-label"> خودم </label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" required id="rdb-other" name="person">
+                                <label for="rdb-other" class="custom-control-label"> شخص دیگری </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-wrapper">
+                <h3 class="input-title">مشخصات پروفایل تافل</h3>
+                <div class="form-group form-inputs">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <label class="input-label">نام کاربری تافل در سایت ets.org :</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <label class="input-label">رمز ورود تافل در سایت ets.org :</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-wrapper">
+                <h3 class="input-title">مشخصات آزمون تافل</h3>
+                <div class="form-inputs">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="form-group">
+                                <label class="input-label">نوع زمان ثبت نام :</label>
+                                <select class="form-control">
+                            <option value="regular">عادی</option>
+                        </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="form-group">
+                                <label class="input-label">هزینه ثبت نام تافل به  دلار:</label>
+                                <input type="number" class="form-control" required readonly value="{{currency_cost}}">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="form-group">
+                                <label class="input-label">مبلغ قابل پرداخت:</label>
+                                <input type="text" id="toman_cost" class="form-control" required readonly value="{{toman_cost}}">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="form-group">
+                                <label class="input-label">نام مرکز برگزاری تافل:</label>
+                                <input type="text" class="form-control" required placeholder="اگر مرکز آزمون برای شما مهم نیست،بنویسید ALL">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="form-group">
+                                <label class="input-label">به چه دلیلی آزمون تافل می دهید؟</label>
+                                <select class="form-control">
+                            <option value="regular">دیگر</option>
+                        </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                            <div class="input-label">
+                                <p>نوع مدرک شناسایی:</p>
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input"  required id="rdb-code" name="degree">
+                                    <label for="rdb-code" class="custom-control-label">کد ملی</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input"  required id="rdb-pasport" name="degree">
+                                    <label for="rdb-pasport" class="custom-control-label">شماره پاسپورت</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-label">
+                                <p>در کدام کشور قصد به ادامه تحصیل دارید؟</p>
+                            </div>
+                            <div class="form-group">
+                                <div class="custom-control custom-checkbox custom-control-inline">
+                                    <input id="country-1" type="checkbox" required class="custom-control-input" name="country">
+                                    <label class="custom-control-label" for="country-1">استرالیا</label>
+                                </div>
+                                <div class="custom-control custom-checkbox custom-control-inline">
+                                    <input id="country-2" type="checkbox" class="custom-control-input" name="country">
+                                    <label class="custom-control-label" for="country-2">کانادا</label>
+                                </div>
+                                <div class="custom-control custom-checkbox custom-control-inline">
+                                    <input id="country-3" type="checkbox" class="custom-control-input" name="country">
+                                    <label class="custom-control-label" for="country-3">فرانسه</label>
+                                </div>
+                                <div class="custom-control custom-checkbox custom-control-inline">
+                                    <input id="country-4" type="checkbox" class="custom-control-input" name="country">
+                                    <label class="custom-control-label" for="country-4">آلمان</label>
+                                </div>
+                                <div class="custom-control custom-checkbox custom-control-inline">
+                                    <input id="country-5" type="checkbox" class="custom-control-input" name="country">
+                                    <label class="custom-control-label" for="country-5">ایرلند</label>
+                                </div>
+                                <div class="custom-control custom-checkbox custom-control-inline">
+                                    <input id="country-6" type="checkbox" class="custom-control-input" name="country">
+                                    <label class="custom-control-label" for="country-6">هلند</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="input-wrapper">
+                <h3 class="input-title">توضیحات</h3>
+                <div class="form-group form-inputs">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="input-label">توضیحات تکمیلی در صورت لزوم:</label>
+                                <textarea type="text" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="input-label">ارسال فایل در صورت لزوم:</label>
+                                <div class="custom-file">
+                                    <label class="input-label">ارسال فایل در صورت لزوم:</label>
+                                    <input id="fileup" type="file" class="custom-file-input">
+                                    <label for="fileup" class="custom-file-label">Choose File</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <input type="submit" value="ثبت سفارش" class="btn btn-primary">
+                </div>
+        </form>
+        </div>
+<script>
+    $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+</script>
+<script>
+    formater = Intl.NumberFormat({style: 'currency',})
+    document.getElementById("toman_cost").value = formater.format(parseInt(document.getElementById("toman_cost").value));
+    document.getElementById("toman_cost").value += "   تومان ";
+</script>
+
+{% endblock %}
